@@ -1,14 +1,20 @@
-def selection_sort(arr):
-    for i in range(len(arr)):
-        min_index = i
+def binary_search(my_list, item):
+    low = 0
+    high = len(my_list) - 1
 
-        for j in range(i + 1, len(arr)):
-            if arr[j] < arr[min_index]:
-                min_index = j
+    while low <= high:
+        mid = (low + high) // 2
+        guess = my_list[mid]
 
-        arr[i], arr[min_index] = arr[min_index], arr[i]
+        if guess == item:
+            return guess
 
-    return arr
+        if guess > item:
+            high = mid - 1
+        else:
+            low = mid + 1
 
-numbers = [5, 8, 3, 2, 4]
-print(selection_sort(numbers))
+    return None
+
+num_list = [1, 2, 3, 4, 5, 6]
+print(binary_search(num_list, 5))
